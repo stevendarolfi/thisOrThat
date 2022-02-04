@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+}
+
+/* document wrap for demo purposes */
+.documentWrap {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.thisOrThat {
+    padding: 32px 48px;
+    font-family: Lato, Arial;
+    font-size: 18px;
+}
+
+.thisOrThat
+.instruction {
+    font-weight: bold;
+}
+
+.thisOrThat
+.section:not(:first-child) {
+    margin-top: 24px;
+}
+
+.thisOrThat
+.options {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0 16px;
+}
+
+.thisOrThat
+div[class^='choice'] {
+    width: 48%;
+    max-width: 488px;
+    padding: 16px 32px;
+    border: 4px solid slategrey;
+}
+
+.thisOrThat
+div[class^='choice']:hover {
+    border: 4px solid #006fbf;
+}
+
+.thisOrThat
+div[class^='choice'][class~='disabled']:not([class~='selected']) {
+    border: 4px solid slategrey;
+}
+
+/*
+GIVE slategrey background-color to button
+IF button not selected is true
+OF button not selected is not true
+*/
+.thisOrThat
+div[class^='choice'][answer='true']
+.button.disabled:not(.selected)
+,
+.thisOrThat
+div[class^='choice']:not([answer='true'])
+.button.disabled:not(.selected)
+ {
+    background-color: slategrey;
+}
+
+.thisOrThat
+.image
+img {
+    width: 100%;
+}
+
+.thisOrThat
+.video
+iframe {
+    width: 100%;
+    height: 280px;
+}
+
+/* button highlight CORRECT */
+.thisOrThat
+.button.highlightCorrect {
+    background-color: green;
+}
+/* button highlight WRONG */
+.thisOrThat
+.button.highlightWrong {
+    background-color: #db2a2a;
+}
+
+.thisOrThat .button,
+.thisOrThat .resetButton {
+    width: fit-content;
+    padding: 0px 32px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #006fbf;
+    color: white;
+}
+
+.thisOrThat .button:hover,
+.thisOrThat .resetButton:hover {
+    cursor: pointer;
+}
+
+/*
+Transition Styles
+*/
+.thisOrThat
+div[class^='choice'].highlightCorrect {
+    border: 4px solid green;
+}
+
+.thisOrThat
+div[class^='choice'].highlightWrong {
+    border: 4px solid #db2a2a;
+}
+
+.thisOrThat
+.displayNone {
+    display: none;
+}
+
+.thisOrThat
+.displayBlock {
+    display: block;
+}
+
+/*
+Media Queries
+*/
+@media(max-width: 768px){ /* $screen-md */
+    .thisOrThat {
+        padding: 8px 32px;
+        font-size: 17px;
+    }
+
+    .thisOrThat
+    .options {
+        flex-flow: column;
+        padding: 0 0 16px;
+    }
+
+    .thisOrThat
+    div[class^='choice'] {
+        width: initial;
+        max-width: initial;
+    }
+
+    .thisOrThat
+    .choice_b {
+        margin-top: 16px;
+    }
+}
+@media(max-width: 576px){ /* $screen-sm */
+    .thisOrThat {
+        padding: 16px;
+        font-size: 16px;
+    }
+}
