@@ -118,7 +118,7 @@ thisOrThat.func.event.displayHighlightAndFeedback = ()=>{
     let section_id          = button.id;
     let section_idNumber    = Number(section_id.split('section_')[1]);
     let thisOrThat_idNumber = Number(section_id.split('thisOrThat_')[1].split('-')[0]);
-    let choiceButtons       = document.querySelectorAll(`div.section#${section_id} div[class^='choice'] .button`);
+    let answerButtons       = document.querySelectorAll(`div.section#${section_id} div[class^='choice'] .button.answer`);
     let answer              = document.querySelector(`div[class^='choice'][answer='true']#${section_id}`);
     let feedback            = document.querySelector(`div.section#${section_id} div[class~='feedback']#${section_id}`);
     let nextSection         = document.querySelector(`div.section#thisOrThat_${thisOrThat_idNumber}-section_${section_idNumber + 1}`);
@@ -145,7 +145,7 @@ thisOrThat.func.event.displayHighlightAndFeedback = ()=>{
         thisOrThat.func.give.nextSection_displayAttributes(nextSection);
     };
     // GIVE
-    thisOrThat.func.give.choiceButton_and_choiceContainer_disabledAttributes(choiceButtons);
+    thisOrThat.func.give.choiceButton_and_choiceContainer_disabledAttributes(answerButtons);
 
 };
 
@@ -383,7 +383,6 @@ thisOrThat.func.is.choiceCorrect = (button, answer)=>{
 START
 */
 thisOrThat.func.start = async()=>{
-    console.log('hello philosopher');
     // GIVE:
     await thisOrThat.func.give.thisOrThats_ids();
     await thisOrThat.func.give.thisOrThatPieces_ids_and_startingAttributes();
